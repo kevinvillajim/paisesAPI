@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 function Cards({ country }) {
   return (
     <>
-      <main>
         <div className="car">
           <div className="DivImg">
             <img src={country.flags.png} alt={country.name.official}></img>
@@ -13,15 +12,12 @@ function Cards({ country }) {
               <strong>{country.name.official}</strong>
             </h3>
             <ul>
-              <li>Population: {country.population}</li>
-              <br />
-              <li>Region: {country.region}</li>
-              <br />
-              <li>Capital: {country.capital}</li>
+              <li><strong>Population: </strong>{country.population}</li>
+              <li><strong>Region: </strong>{country.region}</li>
+              <li><strong>Capital: </strong>{country.capital}</li>
             </ul>
           </div>
         </div>
-      </main>
     </>
   );
 }

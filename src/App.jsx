@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import Cards from './components/Cards';
+import Region from './components/Region';
 import './App.css';
 
 function useData() {
@@ -9,7 +10,7 @@ function useData() {
     const getData = async () => {
       try {
         const res = await fetch("https://restcountries.com/v3.1/all");
-                const datos = await res.json();
+        const datos = await res.json();
         setData(datos);
       } catch (error) {
         console.error("Error fetching data: ", error);
@@ -22,7 +23,7 @@ function useData() {
 }
 
 function App() {
-  const { data} = useData();
+  const { data } = useData();
   const [searchTerm, setSearchTerm] = useState('');
   const [filteredCountries, setFilteredCountries] = useState([]);
 
@@ -54,7 +55,9 @@ function App() {
               <input className="search-input" type="text" placeholder="Search for a country..." value={searchTerm} onChange={handleSearch}/>
               <span className="material-symbols-outlined search-icon">search</span>
             </div>
-            <h2>Desplegable</h2>
+            <div className="selector-container">
+              <Region countries={data}/>
+            </div>
           </div>
           <div className="countriesContainer">
             {filteredCountries.map((country, index) => (
