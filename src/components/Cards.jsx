@@ -19,7 +19,7 @@ function Cards() {
 
   return (
     <>
-      <main>
+      <main className="container">
         {data.map((el, index) => {
           return (
             <div className="car">
