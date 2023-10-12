@@ -1,41 +1,25 @@
-import { useEffect, useState } from "react";
+import PropTypes from "prop-types";
 
-function Cards() {
-  const [data, setData] = useState([]);
-
-  const getData = async () => {
-    try {
-      const res = await fetch("https://restcountries.com/v3.1/all");
-      const resJson = await res.json();
-      setData(resJson);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  useEffect(() => {
-    getData();
-  }, []);
-
+function Cards({ country }) {
   return (
     <>
       <main className="container">
         {data.map((el, index) => {
           return (
-            <div className="car">
+            <div className="car" key={index}>
               <div className="DivImg">
-                <img src={el.flags.png} key={index}></img>
+                <img src={el.flags.png} alt={el.name.official}></img>
               </div>
               <div className="DivText">
                 <h3 className="tit">
                   <strong>{el.name.official}</strong>
                 </h3>
                 <ul>
-                  <il>Population: {el.population}</il>
+                  <li>Population: {el.population}</li>
                   <br />
-                  <il>Region: {el.region}</il>
+                  <li>Region: {el.region}</li>
                   <br />
-                  <il>Capital: {el.capital}</il>
+                  <li>Capital: {el.capital}</li>
                 </ul>
               </div>
             </div>
@@ -45,5 +29,9 @@ function Cards() {
     </>
   );
 }
+
+Cards.propTypes = {
+  country: PropTypes.arrayOf(PropTypes.object).isRequired,
+};
 
 export default Cards;
