@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import Container from './Container';
 import './App.css'
 
 function useData() {
@@ -7,7 +8,7 @@ function useData() {
   useEffect(() => {
     const getData = async () => {
       const res = await fetch(
-        "https://rickandmortyapi.com/api/character/?name"
+        "https://restcountries.com/v3.1/all"
       )
       const datos = await res.json();
       setData(datos)
@@ -23,7 +24,11 @@ function App() {
   const { data, saludar } = useData()
   console.log(data)
   console.log(saludar);
-  return <></>
+  return (
+  <>
+    <Container/>
+  </>
+  )
 }
 
 export default App

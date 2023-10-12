@@ -1,42 +1,87 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.totalContainer {
+  width: 100%;
+  background-color: rgb(233, 233, 233);
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.bodyContainer {
+  position: relative;
+  margin: 1rem 4rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.filtersContainer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 4%;
+  margin-bottom: 4%;
 }
 
-.card {
-  padding: 2em;
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24
 }
 
-.read-the-docs {
-  color: #888;
+.material-symbols-outlined{
+  padding-right: 5px;
 }
+
+.darkMode {
+  display: flex;
+  background-color: white;
+  color: black;
+}
+
+.darkMode > span {
+  color: black;
+}
+
+.header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 4rem;
+  background-color: white;
+  position: relative;
+  top: 0px;
+  box-shadow: 0px 0.2px 1px black;
+}
+
+h2 {
+  color: black;
+}
+
+.search-container {
+  position: relative;
+  width: 40%;
+  color: #b2b2b2;
+}
+
+.search-icon {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  padding-left: 20px;
+}
+
+.search-input {
+  width: calc(100% - 30px);
+  padding: 20px 20px 20px 70px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  color: #b2b2b2;
+}
+
+
