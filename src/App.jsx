@@ -1,29 +1,32 @@
-import { useEffect, useState } from 'react'
-import './App.css'
+import { useEffect, useState } from "react";
+import "./App.css";
+import Cards from "./components/Cards";
 
 function useData() {
   const [data, setData] = useState(null);
-
   useEffect(() => {
     const getData = async () => {
       const res = await fetch(
         "https://rickandmortyapi.com/api/character/?name"
-      )
+      );
       const datos = await res.json();
-      setData(datos)
-    }
+      setData(datos);
+    };
     getData();
-  }, [])
-  
-  const saludar = () => alert("Hola Mundo")
-  return {data, saludar};
+  }, []);
+  const saludar = () => alert("Hola Mundo");
+  return { data, saludar };
 }
 
 function App() {
-  const { data, saludar } = useData()
-  console.log(data)
+  const { data, saludar } = useData();
+  console.log(data);
   console.log(saludar);
-  return <></>
+  return (
+    <>
+      <Cards />;
+    </>
+  );
 }
 
-export default App
+export default App;
