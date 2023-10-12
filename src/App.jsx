@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
 import Container from './Container';
-import Cards from "./components/Cards";
 import './App.css'
 
 function useData() {
@@ -15,17 +14,16 @@ function useData() {
     };
     getData();
   }, []);
-  const saludar = () => alert("Hola Mundo");
-  return { data, saludar };
+  return { data };
 }
 
 function App() {
   const { data, saludar } = useData();
   console.log(data);
   console.log(saludar);
+  
   return <>
       <Container/>
-      <Cards />;
   </>
 }
 
